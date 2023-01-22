@@ -18,9 +18,8 @@ func main() {
 	router := gin.Default()
 
 	router.GET("/api/account", func(c *gin.Context) {
-		c.JSON(http.StatusOK, gin.H{
-			"hello": "kindly folks",
-		})
+		time.Sleep(5 * time.Second)
+		c.String(http.StatusOK, "Welcome Gin Server")
 	})
 
 	srv := &http.Server{
