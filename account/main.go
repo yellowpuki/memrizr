@@ -2,6 +2,7 @@ package main
 
 import (
 	"context"
+	"github.com/yellowpuki/memrizr/handler"
 	"log"
 	"net/http"
 	"os"
@@ -17,9 +18,8 @@ func main() {
 
 	router := gin.Default()
 
-	router.GET("/api/account", func(c *gin.Context) {
-		time.Sleep(5 * time.Second)
-		c.String(http.StatusOK, "Welcome Gin Server")
+	handler.NewHandler(&handler.Config{
+		R: router,
 	})
 
 	srv := &http.Server{
